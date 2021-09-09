@@ -37,7 +37,8 @@ public class CountryInfoResource {
      * @param countryId the id of the countryInfoDTO to retrieve.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the countryInfoDTO, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/country-infos/country-id/{countryId}")
+    @GetMapping(path = "/country-infos/country-id/{countryId}", produces = {"application/json", "application/xml"})
+
     public ResponseEntity<Map> getCountryInfo(@PathVariable String countryId) {
         log.debug("REST request to get CountryInfo : {}", countryId);
         Optional<Map> countryInfoDTO = countryInfo.searchByCountryId(countryId);
